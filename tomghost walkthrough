@@ -1,0 +1,34 @@
+first off starting this tryhackme walkthrough i scanned the port using
+
+nmap -p- TARGET_IP
+
+found port 8009, which is assoiciated with CVE-2020-1938 very interesting indeed
+
+i opened up metasploit by running msfconsole
+
+after searching tomghost i found 
+  auxiliary/admin/http/tomcat_ghostcat
+
+I set the RHOSTS to target_ip and ran the exploit
+
+There i found sum interesting stuff, including a password and an account:
+
+  skyfuck:8730281lkjlkjdqlksalks
+
+very interesting indeed
+
+I connceted with ssh, using the credentials i got
+
+There I found 2 files:
+  1. credentials.pgp
+  2. tryhackme.asc
+
+i found one flag using
+
+  cat /home/merlin/user.txt
+
+and to find the other flag you need to get root and use
+
+  sudo cat /root/root.txt
+
+thats all i know bro
